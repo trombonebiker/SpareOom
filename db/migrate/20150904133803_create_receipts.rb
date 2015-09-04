@@ -4,7 +4,7 @@ class CreateReceipts < ActiveRecord::Migration
       t.float :total
       t.float :meat
 
-      t.references :user
+      t.references :user, index: true
 
       t.timestamps
     end
