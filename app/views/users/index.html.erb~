@@ -1,0 +1,15 @@
+<h1>Listing Users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount due</th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %><%= user.surname %></td>
+    <td><%= user.amount_due %></td>
+  </tr>
+  <% end %>
+</table>
