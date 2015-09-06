@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
 
 
-  resources :receipts
-
+  resources :users do
+    resources :receipts
+  end
 
 
   root 'welcome#index'
