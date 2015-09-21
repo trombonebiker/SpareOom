@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20150906213707) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "surname"
-    t.float    "amount_due"
+    t.float    "meat"
+    t.float    "non_meat"
+    t.float    "amount_due_ethan"
+    t.float    "amount_due_others"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

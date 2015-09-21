@@ -2,6 +2,21 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    @users.each do |user|
+      user.meat = 0
+      user.non_meat = 0
+
+      @reciepts = user.receipts.all
+
+      @reciepts.each do |receipt|
+        user.meat = user.meat + receipt.meat
+        user.non_meat = user.non_meat + receipt.total - receipt.meat
+      end
+
+      user.amount_due_ethan = user.non_meat / 5
+      user.amount_due_others = user.meat / 4
+    end
   end
 
 
