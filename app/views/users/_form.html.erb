@@ -1,0 +1,17 @@
+<div class="form">
+
+  
+  <%= form_for @user do |f| %>
+  
+  <p><%= f.text_field :first_name, placeholder: "First Name" %></p>
+
+  <p><%= f.text_field :surname, placeholder: "Surname" %></p>
+
+  <p><%= f.text_field :email, placeholder: "Email" %></p>
+
+  <p><%= f.password_field :password, placeholder: "Password" %></p>
+
+  <% end %>
+
+
+</div>
