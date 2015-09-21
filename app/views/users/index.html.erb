@@ -3,15 +3,13 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Amount due (Ethan)</th>
-    <th>Amount due (Others)</th>
+    <th>Email</th>
   </tr>
 
   <% @users.each do |user| %>
   <tr>
     <td><%= user.first_name %> <%= user.surname %></td>
-    <td>&pound;<%= number_to_currency(user.amount_due_ethan, unit: "") %></td>
-    <td>&pound;<%= number_to_currency(user.amount_due_others, unit: "") %></td>
+    <td><%= user.email %></td>
   </tr>
   <% end %>
 </table>

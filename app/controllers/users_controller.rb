@@ -2,21 +2,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
-    @users.each do |user|
-      user.meat = 0
-      user.non_meat = 0
-
-      @reciepts = user.receipts.all
-
-      @reciepts.each do |receipt|
-        user.meat = user.meat + receipt.meat
-        user.non_meat = user.non_meat + receipt.total - receipt.meat
-      end
-
-      user.amount_due_ethan = user.non_meat / 5
-      user.amount_due_others = user.meat / 4
-    end
   end
 
 
@@ -39,9 +24,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user
+      session[:user_id] = @user.id
+      redirect_to '/'
     else
-      render 'new'
+      redirect_to '/signup'
     end
   end
 
@@ -67,7 +53,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :surname, :amount_due)
+    params.require(:user).permit(:first_name, :surname, :email, :password)
   end
   
 end
