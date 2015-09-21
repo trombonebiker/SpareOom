@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :receipts
   end
 
+  get 'signup' => 'users#new'
+
 
   root 'welcome#index'
   
